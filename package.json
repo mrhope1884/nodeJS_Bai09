@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "express": "^5.2.1",
+    "mongoose": "^9.6.1",
     "nodemon": "^3.1.14",
     "pug": "^3.0.4"
   }

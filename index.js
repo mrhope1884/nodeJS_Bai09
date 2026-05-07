@@ -1,4 +1,12 @@
 const express = require('express')
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/products-test-t5');
+
+const Products = mongoose.model('Products', { 
+  title: String,
+  price: Number,
+  thumbnail: String
+});
 const app = express()
 const port = 6969
 
@@ -33,11 +41,15 @@ app.get('/', (req, res) => {
 //   res.send('Hello World!')
 // })
 
-app.get('/Products', (req, res) => {
-  res.render('index', { 
-    title: 'Products ',
-    message: 'Trang danh sách sản phẩm ',
-    information: 'Thông tin '})
+app.get('/Products', async (req, res) => {
+    const product = await Products.find({});
+    console.log(product);
+    res.render('product', {
+      title: 'Products',
+      message: 'Trang danh sách sản phẩm',
+      information: 'Thông tin',
+      products: product
+    });
 })
 
 app.get('/Contact', (req, res) => {
