@@ -39,6 +39,14 @@ app.get('/Products', (req, res) => {
     message: 'Trang danh sách sản phẩm ',
     information: 'Thông tin '})
 })
+
+app.get('/Contact', (req, res) => {
+  res.render('contact', { 
+    title: 'Contact ',
+    message: 'Trang liên hệ  ',
+    information: 'Thông tin '})
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
